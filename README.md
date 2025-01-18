@@ -35,7 +35,13 @@ You can download the latest version of VisionVoice directly from our GitHub rele
   - Provider for state management
   - SharedPreferences for local storage
 ## 📱 Screenshots
-[Add screenshots of your app here]
+![Screenshot 1](https://imgur.com/5zrPpDO)
+![Screenshot 2](https://imgur.com/7Nu5oUw)
+![Screenshot 3](https://imgur.com/ZgJ38Yd)
+![Screenshot 4](https://imgur.com/S1u7T2f)
+![Screenshot 5](https://imgur.com/cKT3dcj)
+
+
 ## ⚙️ Getting Started
 ### Prerequisites
 - Flutter SDK
