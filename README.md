@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ocr_app
 
 A new Flutter project.
@@ -14,3 +15,7 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+=======
+# VisionVoice
+VisionVoice is an Android app for visually impaired users, enabling real-time text recognition, translation, and summarization using ML models. Users can capture images of text and hear it read aloud or translated, enhancing accessibility and providing a seamless auditory experience.
+>>>>>>> 45217c4b8059afe0d151a9d23843fc14d2ca38d2
