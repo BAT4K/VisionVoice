@@ -1,0 +1,69 @@
+name: ocr_app
+description: "An OCR app for visually impaired individuals."
+publish_to: 'none'  # Don't publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.6.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Cupertino icons for iOS-style icons
+  cupertino_icons: ^1.0.8
+
+  # Google ML Kit for text recognition
+  google_ml_kit: ^0.19.0
+
+  # Image Picker for selecting images or taking photos
+  image_picker: ^1.1.2
+
+  # Flutter TTS for text-to-speech conversion
+  flutter_tts: ^4.2.1
+
+  google_fonts: ^5.1.0
+
+  image_cropper: ^5.0.0
+
+  shared_preferences: ^2.2.0
+  
+  vibration: ^1.8.1
+
+  translator: ^1.0.3+1
+
+  tflite_flutter: ^0.10.4
+
+  provider: ^6.0.0
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_launcher_icons: ^0.13.1
+
+  # Linting rules to ensure good coding practices
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+
+  # Assets (make sure these files exist in your project)
+  assets:
+    - assets/
+    - assets/icon/app_icon.png   # Add the path to your app logo
+
+  # If using AndroidX or custom fonts, specify them here (if needed in the future)
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/Roboto-Regular.ttf
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/icon/app_icon.png"  # Path to your app icon image
+  adaptive_icon_background: "#FFFFFF" # for Android adaptive icons
+  adaptive_icon_foreground: "assets/icon/icon_foreground.png"

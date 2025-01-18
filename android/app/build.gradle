@@ -1,0 +1,80 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+def keystoreProperties = new Properties()
+def keystorePropertiesFile = rootProject.file('key.properties')
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
+
+android {
+    // Define the namespace for the application
+    namespace = "com.example.ocr_app"
+    compileSdk = flutter.compileSdkVersion
+    ndkVersion = flutter.ndkVersion
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    signingConfigs {
+        release {
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
+            storePassword keystoreProperties['storePassword']
+        }
+    }
+
+    defaultConfig {
+        // Application ID unique to your app
+        applicationId = "com.codevision.visionvoice"
+        minSdkVersion 26 
+        targetSdk = flutter.targetSdkVersion
+        versionCode = flutter.versionCode
+        versionName = flutter.versionName
+
+        // Enable multidex support for larger apps
+        multiDexEnabled = true
+    }
+
+    buildTypes {
+        release {
+            // Enable code shrinking for release builds
+            minifyEnabled true 
+            // Enable resource shrinking to remove unused resources
+            shrinkResources true
+            // Proguard rules for release
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+            signingConfig = signingConfigs.debug
+        }
+    }
+
+    // Configure Gradle to use Jetpack Compose if needed in the future (optional)
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+flutter {
+    source = "../.."
+}
+
+// Add dependencies for multidex support
+dependencies {
+    implementation 'androidx.multidex:multidex:2.0.1'
+    // ML Kit dependencies for text recognition
+    implementation 'com.google.mlkit:text-recognition:16.0.0'
+
+    // TensorFlow Lite dependencies for GPU
+    implementation 'org.tensorflow:tensorflow-lite-gpu:2.12.0'
+}

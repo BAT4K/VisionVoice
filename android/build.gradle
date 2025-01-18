@@ -1,0 +1,32 @@
+// This is the top-level build.gradle file for your Android project
+
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        // Make sure this is updated to at least 8.2.1
+        classpath 'com.android.tools.build:gradle:8.2.1'
+        // Other dependencies here...
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+// Optional: You can set this to "${rootDir}/build" for clarity if needed
+rootProject.buildDir = "../build"
+
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
+    project.evaluationDependsOn(":app")
+}
+
+tasks.register("clean", Delete) {
+    delete rootProject.buildDir
+}
